@@ -1,18 +1,16 @@
 ﻿const express = require('express');
 const app = express();
-const todo = require('./services/todo');
-const PORT = 3000;
+const todoController = require('./controllers/todoController');
 
-app.get('/', async (req, res) => {
-    try {
-        const result = await todo.getTodoById(1);
-        res.json(result);
-    } catch (e) {
-        console.log(e);
-        res.status(500).send("Internal error");
-    }
-})
+require('dotenv').config();
+app.use(express.json());
 
-app.listen(PORT, () => {
-    console.log(`Example app listening on port ${ PORT }`);
+app.get('/', todoController.getAllTodos);
+app.get('/:id', todoController.getTodoById);
+app.post('/', todoController.createTodo);
+app.put('/:id', todoController.updateTodoById);
+app.delete('/:id', todoController.removeTodoById)
+
+app.listen(process.env.PORT, () => {
+    console.log(`Example app listening on port ${ process.env.PORT }`);
 })
