@@ -4,6 +4,7 @@
   "description": "PEt project to have a practise with node and express",
   "main": "index.js",
   "scripts": {
+    "start": "node --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,6 +14,7 @@
   "author": "Shevchenko",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "pg": "^8.11.5"
   }
