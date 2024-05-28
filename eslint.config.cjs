@@ -72,7 +72,7 @@ module.exports = {
         "no-shadow-restricted-names": ["error"],
         "no-use-before-define": ["error", { functions: false }],
         "arrow-parens": ["error", "always"],
-        "arrow-body-style": ["error", "as-needed"],
+        "arrow-body-style": "off",
         "arrow-spacing": ["error"],
         "no-confusing-arrow": ["error", { allowParens: true }],
         "no-useless-computed-key": ["error"],
