@@ -1,41 +1,25 @@
 ﻿"use strict";
 
-const db = require("../db");
+const todoModel = require("../models/todoModel");
 
 const getAllTodos = async () => {
-    const result = await db.query("SELECT * FROM todo");
-    return result.rows;
+    return await todoModel.getAllTodos();
 };
 
 const getTodoById = async (id) => {
-    const result = await db.query("SELECT * FROM todo WHERE id = $1", [id]);
-    return result.rows[0];
+    return await todoModel.getTodoById(id);
 };
 
 const createTodo = async (newTodo) => {
-    const { text, title } = newTodo;
-    const result = await db.query(
-        "INSERT INTO todo (text, title) VALUES ($1, $2) RETURNING *",
-        [text, title],
-    );
-    return result.rows[0];
+    return await todoModel.createTodo(newTodo);
 };
 
 const updateTodoById = async (id, newTodo) => {
-    const { text, title } = newTodo;
-    const result = await db.query(
-        "UPDATE todo SET text = $1, title = $2 WHERE id = $3 RETURNING *",
-        [text, title, id],
-    );
-    return result.rows[0];
+    return await todoModel.updateTodoById(id, newTodo);
 };
 
 const removeTodoById = async (id) => {
-    const result = await db.query(
-        "DELETE FROM todo WHERE id = $1 RETURNING *",
-        [id],
-    );
-    return result.rows[0];
+    return await todoModel.removeTodoById(id);
 };
 
 module.exports = {
