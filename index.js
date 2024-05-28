@@ -2,10 +2,11 @@
 
 const express = require("express");
 const app = express();
+const todoRoutes = require("./routes/todoRoute");
+
 require("dotenv").config();
 app.use(express.json());
 
-const todoRoutes = require("./routes/todoRoute");
 app.use("/todo", todoRoutes);
 
 app.listen(process.env.PORT, () => {
