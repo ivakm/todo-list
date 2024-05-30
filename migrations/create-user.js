@@ -1,7 +1,7 @@
 ﻿"use strict";
 
 const user = `
-    CREATE TABLE Users
+    CREATE TABLE users
     (
         user_id    SERIAL PRIMARY KEY,
         login      VARCHAR(255) NOT NULL,
