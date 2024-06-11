@@ -1,13 +1,24 @@
 ﻿"use strict";
 
+const db = require("../db");
 const user = `
     CREATE TABLE users
     (
-        user_id    SERIAL PRIMARY KEY,
+        id    SERIAL PRIMARY KEY,
         login      VARCHAR(255) NOT NULL,
         password   CHAR(60)     NOT NULL,
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     )
 `;
 
-module.exports = user;
+const run = async () => {
+    try {
+        console.log("migration create-user start");
+        await db.query(user);
+        console.log("migration create-user finished");
+    } catch (e) {
+        console.error(`Error - ${e}`);
+    }
+};
+
+run();
