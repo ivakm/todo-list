@@ -17,7 +17,7 @@ const run = async () => {
     try {
         console.log("migration create-user-profiler start");
         await db.query(profiler);
-        console.log("migration create-user-profiler finished");
+        console.log("migration create-user-profiler finish");
     } catch (e) {
         console.error(`Error - ${e}`);
     }

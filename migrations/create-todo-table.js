@@ -1,7 +1,8 @@
 ﻿"use strict";
+const db = require("../db");
 
-const CreateTodoTable = `
-    CREATE TABLE IF NOT EXISTS todos (
+const createTodos = `
+    CREATE TABLE IF NOT EXISTS todo (
         id SERIAL PRIMARY KEY,
         title VARCHAR(255) NOT NULL
         text VARCHAR(255) NOT NULL
@@ -9,4 +10,14 @@ const CreateTodoTable = `
     );
 `;
 
-module.exports = CreateTodoTable;
+const run = async () => {
+    try {
+        console.log("migration create-todo-table start");
+        await db.query(createTodos);
+        console.log("migration create-todo-table finish");
+    } catch (e) {
+        console.error(`Error - ${e}`);
+    }
+};
+
+run();
