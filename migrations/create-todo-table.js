@@ -1,5 +1,4 @@
-﻿// TODO I left it as an example so it should be removed in the future
-"use strict";
+﻿"use strict";
 
 const CreateTodoTable = `
     CREATE TABLE IF NOT EXISTS todos (
