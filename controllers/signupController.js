@@ -18,6 +18,19 @@ const signUp = async (req, res) => {
     }
 };
 
+const createUser = async (req, res) => {
+    try {
+        const result = await signupService.createUser(req.body);
+        res.json(result);
+    } catch (error) {
+        res.status(500).json({
+            message: "createUser error",
+            error: error.message,
+        });
+    }
+};
+
 module.exports = {
     signUp,
+    createUser,
 };
