@@ -15,7 +15,7 @@ const run = async () => {
     try {
         console.log("migration create-user start");
         await db.query(user);
-        console.log("migration create-user finished");
+        console.log("migration create-user finish");
     } catch (e) {
         console.error(`Error - ${e}`);
     }
