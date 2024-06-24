@@ -30,15 +30,4 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-/*router.put("/:id", async (req, res) => {
-    try {
-        const user = await 
-    } catch (error) {
-        res.status(500).json({
-            message: "Error updating the user",
-            error: error.message,
-        });
-    }
-})*/
-
 module.exports = router;

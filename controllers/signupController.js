@@ -11,7 +11,7 @@ const signUp = async (req, res) => {
             res.status(404).json({ message: "something goes wrong" });
         }
     } catch (error) {
-        res.status(500).json({
+        res.status(400).json({
             message: "Authentication error",
             error: error.message,
         });
@@ -23,7 +23,7 @@ const createUser = async (req, res) => {
         const result = await signupService.createUser(req.body);
         res.json(result);
     } catch (error) {
-        res.status(500).json({
+        res.status(400).json({
             message: "createUser error",
             error: error.message,
         });
